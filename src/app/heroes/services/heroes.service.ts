@@ -13,4 +13,12 @@ export class HeroesService {
   getHeroes():Observable<IHeroes[]>{
    return this.http.get<IHeroes[]>("http://localhost:3000/heroes")
   }
+
+  getHeroe(id:string):Observable<IHeroes>{
+    return this.http.get<IHeroes>("http://localhost:3000/heroes/"+id)
+  }
+
+  getSugerencias(termino:string):Observable<IHeroes[]>{
+    return this.http.get<IHeroes[]>("http://localhost:3000/heroes?q="+termino+"&_limit=6");
+  }
 }
